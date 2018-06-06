@@ -1,4 +1,4 @@
-#Ansible playbook for installing postgres and pgadmin on FreeBSD
+# Ansible playbook for installing postgres and pgadmin on FreeBSD
 
 This is a very simple playbook for installing postgresql96 and pgadmin into a freebsd server. 
 
