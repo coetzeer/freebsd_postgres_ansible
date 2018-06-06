@@ -1,0 +1,44 @@
+#!/bin/sh
+
+# PROVIDE: pgadmin
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+
+. /etc/rc.subr
+
+name=pgadmin
+desc="pgadmin postgresql web frontend"
+rcvar=pgadmin_enable
+
+load_rc_config "${name}"
+
+: ${pgadmin_enable:=NO}
+
+pidfile=/var/run/pgadmin/pgadmin.pid
+pgadmin_logfile=/var/log/pgadmin.log
+start_precmd=pgadmin_prestart
+start_cmd=pgadmin_start
+command=/usr/sbin/daemon
+command_args="-P ${pidfile} -t pgadmin -o ${pgadmin_logfile} -u root /usr/local/pgadmin4/bin/python2.7 /usr/local/pgadmin4/lib/python2.7/site-packages/pgadmin4/pgAdmin4.py"
+
+
+pgadmin_prestart()
+{
+        if [ ! -f "${pgadmin_logfile}" ]; then
+                #install -o "${jenkins_user}" -g "${jenkins_group}" -m 640 /dev/null "${jenkins_log_file}"
+                touch ${pgadmin_logfile}
+        fi
+        if [ ! -d "/var/run/pgadmin/" ]; then
+                install -d -o "root" -g "wheel" -m 750 "/var/run/pgadmin"
+        fi
+}
+
+pgadmin_start()
+{
+        check_startmsgs && echo "Starting ${name}."
+        #/usr/sbin/daemon -P ${pidfile} -t pgadmin -o ${pgadmin_logfile} -u root /usr/local/pgadmin4/bin/python2.7 /usr/local/pgadmin4/lib/python2.7/site-packages/pgadmin4/pgAdmin4.py
+        exec ${command} ${command_args}
+
+}
+
+run_rc_command "$1"
