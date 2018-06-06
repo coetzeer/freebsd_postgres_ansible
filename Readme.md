@@ -9,7 +9,7 @@ This is based on the instructions garnered from this useful web page: https://ww
 I run this in an iocage jail in a jenkins server:
 
 ```
-RELEASE=11.1.0
+RELEASE=11.1-RELEASE
 export JLN="postgres_test_${RELEASE}"
 sudo iocage create -n ${JLN} dhcp=on allow_sysvipc=1 bpf=yes vnet=on -r$RELEASE
 sudo iocage start ${JLN}
