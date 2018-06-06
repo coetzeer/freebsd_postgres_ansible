@@ -4,6 +4,8 @@ This is a very simple playbook for installing postgresql96 and pgadmin into a fr
 
 There is no clustering or backups or tuning - both are installed Out of the box and not by any stretch of the imagination suitable for production.
 
+This is based on the instructions garnered from this useful web page: https://www.howtoforge.com/tutorial/how-to-install-postgresql-and-pgadmin-on-freebsd-11/
+
 I run this in an iocage jail in a jenkins server:
 
 ```
