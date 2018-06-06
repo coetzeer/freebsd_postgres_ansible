@@ -22,6 +22,7 @@
       - wget
       - py27-sqlite3
       - rinetd
+      - ca_root_nss
 
 
     - name: Pip install into system python
