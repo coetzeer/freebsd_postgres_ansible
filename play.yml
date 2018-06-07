@@ -24,7 +24,6 @@
       - rinetd
       - ca_root_nss
 
-
     - name: Pip install into system python
       pip:
         name: "{{item}}"
