@@ -89,10 +89,10 @@
       shell: wget --no-check-certificate https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v3.3/pip/pgadmin4-3.3-py2.py3-none-any.whl
       args:
         chdir: /usr/local/pgadmin4
-        creates: "/usr/local/pgadmin4/pgadmin4-3.0-py2.py3-none-any.whl"
+        creates: "/usr/local/pgadmin4/pgadmin4-3.3-py2.py3-none-any.whl"
 
     - pip:
-        name: file:///usr/local/pgadmin4/pgadmin4-3.0-py2.py3-none-any.whl
+        name: file:///usr/local/pgadmin4/pgadmin4-3.3-py2.py3-none-any.whl
         virtualenv: "/usr/local/pgadmin4"
 
     - file:
