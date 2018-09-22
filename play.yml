@@ -86,7 +86,7 @@
         - pyasn1
 
     - name: download pgadmin
-      shell: wget --no-check-certificate https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v3.0/pip/pgadmin4-3.0-py2.py3-none-any.whl
+      shell: wget --no-check-certificate https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v3.3/pip/pgadmin4-3.3-py2.py3-none-any.whl
       args:
         chdir: /usr/local/pgadmin4
         creates: "/usr/local/pgadmin4/pgadmin4-3.0-py2.py3-none-any.whl"

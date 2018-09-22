@@ -19,11 +19,7 @@ pgadmin_logfile=/var/log/pgadmin.log
 start_precmd=pgadmin_prestart
 start_cmd=pgadmin_start
 command=/usr/sbin/daemon
-{% if '10.4-RELEASE' in ansible_env.SUDO_COMMAND %}
-command_args="-P ${pidfile} -o ${pgadmin_logfile} -u root /usr/local/pgadmin4/bin/python2.7 /usr/local/pgadmin4/lib/python2.7/site-packages/pgadmin4/pgAdmin4.py"
-{% else %}
 command_args="-P ${pidfile} -t pgadmin -o ${pgadmin_logfile} -u root /usr/local/pgadmin4/bin/python2.7 /usr/local/pgadmin4/lib/python2.7/site-packages/pgadmin4/pgAdmin4.py"
-{% endif %}
 
 pgadmin_prestart()
 {
